@@ -36,3 +36,9 @@ body {
     margin-right: 50px;
     margin-top: 20px;
 }
+
+#brick_counter {
+    width: 50%;
+    height: 450px;
+    position: absolute;
+}
