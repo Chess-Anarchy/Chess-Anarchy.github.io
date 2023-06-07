@@ -6,3 +6,21 @@ body {
 p {
     text-align: center;
 }
+
+.bricks {
+    background: firebrick;
+}
+
+.bricksHeading > img {
+    height: 10rem;
+}
+
+.bricksHeading {
+    display: flex;
+    gap: 1rem;
+}
+
+.bricksInput {
+    display: flex;
+    gap: 1rem;
+}
