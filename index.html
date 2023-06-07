@@ -5,10 +5,32 @@
     <title>Anarchy Chess Home Page</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.logwork.com/widget/countdown.js" defer></script>
+    <script src="script.js"></script>
+    <noscript>You need JavaScipt to run this</noscript>
 </head>
 <body>
     <body style="background-color:rgb(0, 0, 0);"></body>
     <a href="https://logwork.com/countdown-zhpu" class="countdown-timer" data-style="circles" data-timezone="Europe/Oslo" data-textcolor="#ffffff" data-date="2023-06-12 23:00" data-background="#193296" data-digitscolor="#ffffff" data-unitscolor="#ffffff">Time until supposed release</a>
     <p style="text-align: center;">go en passant yourself</p>
+
+
+    <div class="bricks">
+        <div class="bricksHeading">
+            <img src="images/brick.png"/>
+            <h1>Calculate how many pipi in pampers</h1>
+        </div>
+        <h3>Enter your chess.c*m username:</h3>
+        <div class="bricksInput">
+            <input type="text" id="username" placeholder="Username">
+            <br>
+            <button onclick="calculateBricks()">Submit</button>
+        </div>
+        
+
+        <h1>Your pipi is bricked times: <span id="brickCount">Unknown</span> </h1>
+        
+    </div>
+ 
+
 </body>
 </html>
