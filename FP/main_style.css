@@ -10,7 +10,7 @@ body {
     padding-bottom: 50%;
     position: absolute;
     left: 50%; transform: translateX(-50%);
-    width: max-content;
+    width: 80%;
 }
 
 #top_bar {
@@ -35,4 +35,10 @@ body {
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 20px;
+}
+
+#brick_counter {
+    width: 50%;
+    height: 450px;
+    position: absolute;
 }
