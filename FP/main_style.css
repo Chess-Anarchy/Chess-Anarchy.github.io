@@ -10,7 +10,7 @@ body {
     padding-bottom: 50%;
     position: absolute;
     left: 50%; transform: translateX(-50%);
-    width: max-content;
+    width: 80%;
 }
 
 #top_bar {
