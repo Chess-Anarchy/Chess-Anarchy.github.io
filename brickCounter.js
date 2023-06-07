@@ -25,7 +25,7 @@ const calculateBricks = async () => {
   const brickCountEle = document.getElementById("brickCount")
   const brickStatsEle = document.getElementById("brickStats")
 
-  brickCountEle.innerHTML = "Loading..."
+  brickCountEle.innerHTML = "Loading...."
   brickStatsEle.innerHTML = ""
 
   try {
