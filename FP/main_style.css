@@ -1,0 +1,38 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main {
+    background-color: #101010;
+    padding-bottom: 50%;
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    width: max-content;
+}
+
+#top_bar {
+    background-color: #ED1B24;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#top_bar_bg {
+    background-color: #ED1B24;
+    padding-bottom: 90px;
+    margin-bottom: 0px;
+}
+
+.top_bar_button {
+    height: 50px; width: 70px;
+    border: 2px black;
+    border-radius: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+}
