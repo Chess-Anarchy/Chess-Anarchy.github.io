@@ -78,17 +78,15 @@ def save(title, body, author):
     f.close()
 
 
-while True:
-    i = input("Save, load or exit? (s/l/e)")
-    if i == 'l':
-        i = input("ID to load: ")
-        load(int(i))
-    elif i == 's':
-        t = input("Post title: ")
-        b = input("Post body: ")
-        a = input("Post author: ")
-        save(t, b, a)
-    elif i == 'e':
-        break
-
-
+# while True:
+#    i = input("Save, load or exit? (s/l/e)")
+#    if i == 'l':
+#        i = input("ID to load: ")
+#        load(int(i))
+#    elif i == 's':
+#        t = input("Post title: ")
+#        b = input("Post body: ")
+#        a = input("Post author: ")
+#        save(t, b, a)
+#    elif i == 'e':
+#        break
