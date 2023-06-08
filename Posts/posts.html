@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chess Anarchy Posts</title>
+        <link rel="stylesheet" href="posts_style.css">
+    </head>
+
+    <body style="margin: 0px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div id="top_bar"></div>
+        <div id="posts_UI">
+            <div id="posts_column">
+                <div class="post">
+                    <h1>
+                        Google en passant
+                    </h1>
+                    <h2>
+                        Holy hell
+                    </h2>
+                </div>
+                <div class="post">
+
+                </div>
+                <div class="post">
+
+                </div>
+                <div class="post">
+
+                </div>
+            </div>
+            <div id="search_column">
+                <div id="search_window">
+                    <form action="post_search.js" onsubmit="return action(this)">
+                        <input class="text_input" type="text" name="search" id="search_for_text" placeholder="Search">
+                        <label for="tags">Tags:</label>
+                        <input class="text_input" type="text" name="tags" id="write_tags" placeholder="Input your tags">
+                        <div style="display:flex; ">   
+                            <fieldset class="column_choice">
+                                <legend>Sort by:</legend>
+                                <input type="radio" id="new" name="sort" value="new" style="margin-top: 15px;">
+                                <label for="new">New</label><br>
+
+                                <input type="radio" id="top" name="sort" value="top" style="margin-top: 15px;">
+                                <label for="top">Top</label><br>
+
+                                <input type="radio" id="relevant" name="sort" value="relevant" style="margin-top: 15px;">
+                                <label for="relevant">Relevant</label><br>
+                            </fieldset>
+                            <fieldset class="column_choice">
+                                <legend>Time:</legend>
+                                <input type="radio" id="hour" name="time" value="past_hour">
+                                <label for="hour">Past hour</label><br>
+                                
+                                <input type="radio" id="day" name="time" value="past_day">
+                                <label for="day">Past 24 hours</label><br>
+
+                                <input type="radio" id="week" name="time" value="this_week">
+                                <label for="week">This week</label><br>
+
+                                <input type="radio" id="month" name="time" value="this_month">
+                                <label for="month">This month</label><br>
+
+                                <input type="radio" id="year" name="time" value="this year">
+                                <label for="year">This year</label><br>
+
+                                <input type="radio" id="all_time" name="time" value="all_time">
+                                <label for="all_time">All time</label>
+                            </fieldset>
+                        </div> 
+                        <input type="submit" class="text_input" value="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="gradient_bottom"></div>
+        <button id="fixed-button">Post Something</button>
+    </body>
+</html>
