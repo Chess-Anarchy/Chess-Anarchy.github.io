@@ -71,3 +71,78 @@ body {
     padding: 20px;
     border-radius: 5px;
 }
+#back {
+    background-color: rgba(155, 33, 33, 0.849); 
+}
+#logo2 {
+    display: none
+}
+#enpassantpost {
+    display: none
+}
+.image-container {
+    position:absolute;
+    top: 20%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .image-container img {
+    display: inline-block;
+    width: 100px;
+  }
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+#contributor_header {
+    font-size: 35px;
+}
+#historyheader {
+    font-size: 35px;
+}
+#enpassantexample {
+    display: none;
+}
+.container {
+    display: inline-block;
+    border: 6px solid rgb(243, 124, 124);
+    padding: 10px;
+    background-color: #333;
+    display: none;
+  }
+  .image-container2 {
+    position:absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .image-container2 img {
+    display: inline-block;
+    width: 300px;
+  }
+.image-container3 {
+    position:absolute;
+    top: 60%;
+    left: 80%;
+    transform: translate(-350%, -50%);
+    text-align: center;
+  }
+  .image-container3 img {
+    display: inline-block;
+    width: 350px;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  #logo2 {
+    animation: spin linear infinite;
+  }
