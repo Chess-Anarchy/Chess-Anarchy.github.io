@@ -182,7 +182,8 @@ form label {
     flex-direction: row;
     height: 150px;
     display:none;    
-    
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .added_image {
