@@ -26,16 +26,16 @@ setTimeout(resolve, time);
 async function displayText() {
     for (let i=0; i < sentence.length; i++) {
     intro.textContent = intro.textContent + sentence[i]
-    await wait(50)
+    await wait(20)
     }
 }
 
 async function displayText2() {
-    await wait(50 * parseInt(sentence.length))
+    await wait(20 * parseInt(sentence.length))
     await wait(1000)
     for (let i=0; i < sentence2.length; i++) {
     pointer.textContent = pointer.textContent + sentence2[i]
-    await wait(50)
+    await wait(20)
     }
 }
 
