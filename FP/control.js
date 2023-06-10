@@ -1,5 +1,4 @@
 const openPopupButton = document.getElementById('Home_button');
-const aboutButton = document.getElementById('About_button');
 const closePopupButton = document.getElementById('closePopup');
 const popupContainer = document.getElementById('popupContainer');
 
@@ -15,11 +14,6 @@ openPopupButton.addEventListener('click', function() {
 closePopupButton.addEventListener('click', function() {
     popupContainer.style.display = 'none';
 });
-//*should* bring user to about page when About button is clicked (please work)
-aboutButton.addEventListener('click', function() {
-    window.location.href = "About.html";
-})
-
 
 
 //Displays the scrolling text
