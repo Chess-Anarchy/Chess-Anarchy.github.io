@@ -1,4 +1,5 @@
 const openPopupButton = document.getElementById('Home_button');
+const aboutButton = document.getElementById('About_button');
 const closePopupButton = document.getElementById('closePopup');
 const popupContainer = document.getElementById('popupContainer');
 
@@ -14,6 +15,11 @@ openPopupButton.addEventListener('click', function() {
 closePopupButton.addEventListener('click', function() {
     popupContainer.style.display = 'none';
 });
+//*should* bring user to about page when About button is clicked (please work)
+aboutButton.addEventListener('click', function() {
+    window.location.href = "About.html";
+})
+
 
 
 //Displays the scrolling text
@@ -26,16 +32,16 @@ setTimeout(resolve, time);
 async function displayText() {
     for (let i=0; i < sentence.length; i++) {
     intro.textContent = intro.textContent + sentence[i]
-    await wait(50)
+    await wait(20)
     }
 }
 
 async function displayText2() {
-    await wait(50 * parseInt(sentence.length))
+    await wait(20 * parseInt(sentence.length))
     await wait(1000)
     for (let i=0; i < sentence2.length; i++) {
     pointer.textContent = pointer.textContent + sentence2[i]
-    await wait(50)
+    await wait(20)
     }
 }
 
