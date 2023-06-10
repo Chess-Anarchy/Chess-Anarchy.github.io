@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chess Anarchy Account Creation</title>
+        <link rel="stylesheet" href="accounts_style.css">
+    </head>
+
+    <body style="margin: 0px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        
+        <div id="top-bar"></div>
+
+        <div id="sign-in-panel">
+            <div class="sign-in-panel-section" style="height: 33.3%;">
+                <label for="email_input">Pleade, input a Username</label>
+                <input type="text" class="text-input" id="username_input" name="username_input" placeholder="Username"> <br>
+
+                <label for="email_input">Please, input your email</label>
+                <input type="email" class="text-input" id="email_input" name="email_input" placeholder="Email">
+            </div>
+            <div class="sign-in-panel-section" style="height: 33.3%;">
+                <label for="password_input">Password</label> <br>
+                <input type="password" class="text-input" id="password_input" name="password_input"> <br>
+
+                <label for="password_input">Confirm Password</label> <br>
+                <input type="password" class="text-input" id="password_confirm" name="password_confirm">
+
+                <p class="WRONG_INPUT" id="wrong-input" style="display: none;">The passwords don't match</p>
+            </div>
+            <div class="sign-in-panel-section" style="height: 33.3%; border: none;">
+                <input type="submit" value="Sign Up" id="sign-in-button" onclick="acceptSignUp()">
+            </div>
+
+        </div>
+        <script src="account_creation.js"></script>
+    </body>
+</html>
