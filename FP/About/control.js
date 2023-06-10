@@ -5,7 +5,6 @@ const introduction_text = "Here you can learn about Anarchy chess's history!(why
 const logotext = document.getElementById("logotext")
 const logotext_text = "This is anarchy chess's logo!".split("")
 const logo = document.getElementById("logo2")
-const homebutton = document.getElementById("back")
 const contributor_header = document.getElementById("contributor_header")
 const contributor_header_text = "Website Contributors".split("")
 const Brabygg = document.getElementById("Brabygg")
@@ -40,10 +39,6 @@ function wait(time) {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
-    //brings user back home!
-    homebutton.addEventListener('click', function() {
-        window.location.href = "fp.html";
-    })
     //displays welcoming speech?...
     async function displayHello() {
         for (let i=0; i < hello_text.length; i++) {
@@ -114,6 +109,10 @@ function wait(time) {
           texttowrite = "Shubham";
         } else if (elementId == "zw") {
           texttowrite = "zw";
+        } else if (elementId == "Dat_fast_boi") {
+          texttowrite = "dat_fast_boi";
+        } else if (elementId == "besti") {
+          texttowrite = "besti";
         }
         
         for (let i = 0; i < texttowrite.length; i++) {
@@ -271,8 +270,10 @@ displaylogotext()
 showlogo()
 showContainer()
 displaycontributorheader()
-displaycontributor("Brabygg")
 displaycontributor("AlvoSil")
+displaycontributor("besti")
+displaycontributor("Brabygg")
+displaycontributor("Dat_fast_boi")
 displaycontributor("Lordaurum")
 displaycontributor("Pos3odon")
 displaycontributor("Shubham")
