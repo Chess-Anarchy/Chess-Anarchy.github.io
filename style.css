@@ -24,3 +24,7 @@ p {
     display: flex;
     gap: 1rem;
 }
+
+@media (max-width:1340px) {
+    
+}
