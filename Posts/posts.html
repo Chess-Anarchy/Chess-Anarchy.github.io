@@ -31,11 +31,11 @@
             </div>
             <div id="search_column">
                 <div id="search_window">
-                    <form action="post_search.js" onsubmit="return action(this)">
-                        <input class="text_input" type="text" name="search" id="search_for_text" placeholder="Search">
-                        <label for="tags">Tags:</label>
+                    <form action="post_search.js" onsubmit="return action(this)" style="display: flex;flex-direction: column;">
+                        <input class="text_input" type="text" name="search" id="search_for_text" placeholder="Search"><br>
+                        <label for="tags" id="disappear">Tags:</label><br>
                         <input class="text_input" type="text" name="tags" id="write_tags" placeholder="Input your tags">
-                        <div style="display:flex; ">   
+                        <div style="display:flex;" id="columns_container">   
                             <fieldset class="column_choice">
                                 <legend>Sort by:</legend>
                                 <input type="radio" id="new" name="sort" value="new" style="margin-top: 15px;">
