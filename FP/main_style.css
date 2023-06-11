@@ -37,6 +37,10 @@ body {
     margin-top: 20px;
 }
 
+.top_bar_button:hover {
+    background-color: #CCCCCC;
+}
+
 #brick_counter {
     width: 50%;
     height: 450px;
