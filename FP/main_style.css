@@ -37,6 +37,10 @@ body {
     margin-top: 20px;
 }
 
+.top_bar_button:hover {
+    background-color: #CCCCCC;
+}
+
 #brick_counter {
     width: 50%;
     height: 450px;
@@ -71,19 +75,3 @@ body {
     padding: 20px;
     border-radius: 5px;
 }
-
-.rounded-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .rounded-button:hover {
-    background-color: #f50909;
-  }
