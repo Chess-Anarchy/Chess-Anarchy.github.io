@@ -1,0 +1,32 @@
+#brick_container, #chat_container {
+    width: 40%;
+    padding-left: 5%;
+    padding-top: 5%;
+    height: 450px;
+}
+
+#placeholder_bg {
+    background-color: #ED1B24;
+    padding-bottom: 100%;
+}
+
+#bottom_container {
+    padding-top: 5%;
+}
+
+#thing1_container {
+    width: 40%;
+    padding-right: 5%;
+    height: 450px;
+}
+
+#thing2_container {
+    width: 10%;
+    padding-right: 10%;
+    height: 450px;
+}
+
+#thing3_container {
+    width: 20%;
+    height: 450px;
+}
