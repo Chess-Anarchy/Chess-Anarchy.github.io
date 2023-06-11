@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <center>
+  <head>
+    <style>
+      .board {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .square {
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="turnIndicator">White's Turn</h2>
+    <h3 id="winnerText"></h3>
+    <div class="board" id="board"></div>
+
+    <script>
+      // Game variables
+      var board = [];
+      var selectedPiece = null;
+      var currentPlayer = 'W'; // 'W' for white, 'B' for black
+
+      // Initialize the board
+      function initializeBoard() {
+        var boardDiv = document.getElementById('board');
+
+        // Create the board squares
+        for (var i = 0; i < 8; i++) {
+          for (var j = 0; j < 8; j++) {
+            var square = document.createElement('div');
+            square.className = 'square';
+            square.id = 'square_' + i + '_' + j;
+            square.addEventListener('click', selectSquare);
+            boardDiv.appendChild(square);
+          }
+        }
+
+        // Set initial pieces
+        for (var i = 0; i < 8; i++) {
+          board[i] = [];
+          for (var j = 0; j < 8; j++) {
+            if ((i + j) % 2 === 1 && i < 3) {
+              board[i][j] = 'W';
+              document.getElementById('square_' + i + '_' + j).textContent = '♙';
+            } else if ((i + j) % 2 === 1 && i > 4) {
+              board[i][j] = 'B';
+              document.getElementById('square_' + i + '_' + j).textContent = '♟︎';
+            } else {
+              board[i][j] = null;
+            }
+          }
+        }
+      }
+
+      // Select a square
+      function selectSquare() {
+        var id = this.id;
+        var coordinates = id.split('_');
+        var row = parseInt(coordinates[1]);
+        var col = parseInt(coordinates[2]);
+
+        if (selectedPiece) {
+          movePiece(selectedPiece, row, col);
+        } else {
+          selectPiece(row, col);
+        }
+      }
+
+      // Select a piece
+      function selectPiece(row, col) {
+        var piece = board[row][col];
+
+        // Check if it's the player's turn and there is a piece at the selected square
+        if (piece && piece === currentPlayer) {
+          selectedPiece = { row: row, col: col };
+          highlightLegalMoves(row, col);
+        }
+      }
+
+      // Move a piece
+      function movePiece(piece, newRow, newCol) {
+        var oldRow = piece.row;
+        var oldCol = piece.col;
+
+        // Check if it's the player's turn and the move is valid
+        if (currentPlayer === board[oldRow][oldCol] && isValidMove(oldRow, oldCol, newRow, newCol)) {
+          // Move the piece
+          board[newRow][newCol] = board[oldRow][oldCol];
+          board[oldRow][oldCol] = null;
+          document.getElementById('square_' + newRow + '_' + newCol).textContent = document.getElementById('square_' + oldRow + '_' + oldCol).textContent;
+          document.getElementById('square_' + oldRow + '_' + oldCol).textContent = '';
+
+          // Remove captured piece, if any
+          var capturedRow = (newRow + oldRow) / 2;
+          var capturedCol = (newCol + oldCol) / 2;
+
+          if (Math.abs(newRow - oldRow) === 2 && Math.abs(newCol - oldCol) === 2) {
+            board[capturedRow][capturedCol] = null;
+            document.getElementById('square_' + capturedRow + '_' + capturedCol).textContent = '';
+          }
+
+          // Clear selection and highlights
+          selectedPiece = null;
+          clearHighlights();
+
+          // Check for a winner
+          var winner = checkWinner();
+          if (winner) {
+            var winnerText = document.getElementById('winnerText');
+            winnerText.textContent = (winner === 'W' ? 'White' : 'Black') + ' won!';
+            return;
+          }
+
+          // Switch players
+          currentPlayer = currentPlayer === 'W' ? 'B' : 'W';
+
+          // Update turn indicator
+          var turnIndicator = document.getElementById('turnIndicator');
+          turnIndicator.textContent = currentPlayer === 'W' ? "White's Turn" : "Black's Turn";
+        }
+      }
+
+      // Check if a move is valid
+      function isValidMove(oldRow, oldCol, newRow, newCol) {
+        var piece = board[oldRow][oldCol];
+        var isKing = (piece === 'W' && newRow === 0) || (piece === 'B' && newRow === 7);
+
+        // Check if the move is diagonal and within the board boundaries
+        if (Math.abs(newRow - oldRow) === 1 && Math.abs(newCol - oldCol) === 1) {
+          // Check if the destination square is empty
+          if (!board[newRow][newCol]) {
+            return true;
+          }
+        } else if (Math.abs(newRow - oldRow) === 2 && Math.abs(newCol - oldCol) === 2) {
+          // Check if the destination square is empty and the jump is valid
+          var capturedRow = (newRow + oldRow) / 2;
+          var capturedCol = (newCol + oldCol) / 2;
+
+          if (board[capturedRow][capturedCol] && board[capturedRow][capturedCol] !== piece) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+
+      // Highlight legal moves for a selected piece
+      function highlightLegalMoves(row, col) {
+        var piece = board[row][col];
+        clearHighlights();
+
+        if (!piece) {
+          return;
+        }
+
+        var isKing = (piece === 'W' && row === 0) || (piece === 'B' && row === 7);
+        var directions = isKing ? [-1, 1] : (piece === 'W' ? [-1] : [1]);
+
+        // Check for valid moves in all directions
+        for (var i = 0; i < directions.length; i++) {
+          var dir = directions[i];
+          var newRow = row + dir;
+
+          for (var j = -1; j <= 1; j += 2) {
+            var newCol = col + j;
+
+            if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8 && !board[newRow][newCol]) {
+              document.getElementById('square_' + newRow + '_' + newCol).classList.add('highlight');
+            }
+          }
+        }
+      }
+
+      // Clear highlighted squares
+      function clearHighlights() {
+        var squares = document.getElementsByClassName('square');
+        for (var i = 0; i < squares.length; i++) {
+          squares[i].classList.remove('highlight');
+        }
+      }
+
+      // Check for a winner
+      function checkWinner() {
+        var whiteCount = 0;
+        var blackCount = 0;
+
+        for (var i = 0; i < 8; i++) {
+          for (var j = 0; j < 8; j++) {
+            if (board[i][j] === 'W') {
+              whiteCount++;
+            } else if (board[i][j] === 'B') {
+              blackCount++;
+            }
+          }
+        }
+
+        if (whiteCount === 0) {
+          return 'B';
+        } else if (blackCount === 0) {
+          return 'W';
+        }
+
+        return null;
+      }
+
+      // Initialize the board on page load
+      window.onload = function () {
+        initializeBoard();
+      };
+    </script>
+  </body>
+</center>
+</html>
