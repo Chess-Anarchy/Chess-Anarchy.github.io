@@ -1,38 +1,45 @@
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-p {
-    text-align: center;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.bricks {
-    background: firebrick;
+.rounded-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  background-size: 500% 500%;
+  animation: rainbow 5s linear infinite;
+  border: 2px solid #000;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  transition: background-color 0.3s;
 }
 
-.bricksHeading > img {
-    height: 10rem;
+.rounded-button:hover {
+  background-color: #d9d9d9;
 }
 
-.bricksHeading {
-    display: flex;
-    gap: 1rem;
+.hidden {
+  display: none;
 }
 
-.bricksInput {
-    display: flex;
-    gap: 1rem;
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.not-available-sign {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ff0000;
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
+.white-text {
+  color: white;
 }
