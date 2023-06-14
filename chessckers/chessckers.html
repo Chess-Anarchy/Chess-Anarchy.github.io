@@ -34,6 +34,7 @@
       <button class="top_bar_button">Misc</button>
       <button class="top_bar_button" onclick="Link('../About/about.html')">About</button>
     </div>
+    <p>Work in progress (only singleplayer for now)</p>
     <div id="top_bar_bg"></div>
     <hr>
     <h2 id="turnIndicator">White's Turn</h2>
@@ -41,6 +42,7 @@
     <div class="board" id="board"></div>
     <button class="retryButton" onclick="resetGame()">Retry</button>
 
+    <center>
     <script>
       // Game variables
       var board = [];
@@ -259,5 +261,6 @@ function highlightLegalMoves(row, col) {
         initializeBoard();
       };
     </script>
+  </center>
   </body>
 </html>

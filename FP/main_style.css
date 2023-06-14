@@ -91,3 +91,28 @@ body {
   .rounded-button:hover {
     background-color: #f50909;
   }
+
+.Work-In-Progress-Sign {
+    width: 200px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; 
+    font-size: 18px; 
+    font-weight: bold;
+    border-radius: 10px; 
+    animation: colorChange 5s linear infinite;
+}
+  
+@keyframes colorChange {
+    0% {
+      background-color: #000000; 
+    }
+    50% {
+      background-color: #ffff00;
+    }
+    100% {
+      background-color: #000000; 
+    }
+}
