@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countup</title>
+  <body>
+    <link rel="stylesheet" type="text/css" href="/countup/countup_style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="/FP/button_control.js" defer></script>
+    <script src="/FP/link_cont.js"></script>
+    <div id="top_bar">
+        <button class="top_bar_button" onclick="Link('/FP/fp.html')">Home</button>
+        <button class="top_bar_button">The Game</button>
+        <button class="top_bar_button">Forums</button>
+        <button class="top_bar_button" onclick="Link('/FP/Misc/misc.html')">Misc</button>
+        <button class="top_bar_button" onclick="Link('/FP/About/about.html')">About</button>
+    </div>
+    <div id="top_bar_bg"></div><hr>
+  <p>time since the website's launch</p>
+</head>
+<body>
+  <div class="clock">
+    <span id="days">0</span> days
+    <span id="hours">0</span> hours
+    <span id="minutes">0</span> minutes
+    <span id="seconds">0</span> seconds
+  </div>
+  <script src="clock.js"></script>
+</body>
+</html>
