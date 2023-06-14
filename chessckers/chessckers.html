@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <center>
   <head>
     <style>
       .board {
@@ -29,16 +28,18 @@
   </head>
   <body>
     <div id="top_bar">
-        <button class="top_bar_button" onclick="Link('../fp.html')">Home</button>
-        <button class="top_bar_button">The Game</button>
-        <button class="top_bar_button">Forums</button>
-        <button class="top_bar_button">Misc</button>
-        <button class="top_bar_button" onclick="Link('../About/about.html')">About</button>
+      <button class="top_bar_button" onclick="Link('../fp.html')">Home</button>
+      <button class="top_bar_button">The Game</button>
+      <button class="top_bar_button">Forums</button>
+      <button class="top_bar_button">Misc</button>
+      <button class="top_bar_button" onclick="Link('../About/about.html')">About</button>
     </div>
-    <div id="top_bar_bg"></div><hr>
+    <div id="top_bar_bg"></div>
+    <hr>
     <h2 id="turnIndicator">White's Turn</h2>
     <h3 id="winnerText"></h3>
     <div class="board" id="board"></div>
+    <button class="retryButton" onclick="resetGame()">Retry</button>
 
     <script>
       // Game variables
@@ -113,7 +114,8 @@
           // Move the piece
           board[newRow][newCol] = board[oldRow][oldCol];
           board[oldRow][oldCol] = null;
-          document.getElementById('square_' + newRow + '_' + newCol).textContent = document.getElementById('square_' + oldRow + '_' + oldCol).textContent;
+          document.getElementById('square_' + newRow + '_' + newCol).textContent =
+            document.getElementById('square_' + oldRow + '_' + oldCol).textContent;
           document.getElementById('square_' + oldRow + '_' + oldCol).textContent = '';
 
           // Remove captured piece, if any
@@ -171,31 +173,54 @@
       }
 
       // Highlight legal moves for a selected piece
-      function highlightLegalMoves(row, col) {
-        var piece = board[row][col];
-        clearHighlights();
+function highlightLegalMoves(row, col) {
+  var piece = board[row][col];
+  clearHighlights();
 
-        if (!piece) {
-          return;
-        }
+  if (!piece) {
+    return;
+  }
 
-        var isKing = (piece === 'W' && row === 0) || (piece === 'B' && row === 7);
-        var directions = isKing ? [-1, 1] : (piece === 'W' ? [-1] : [1]);
+  var isKing = (piece === 'W' && row === 0) || (piece === 'B' && row === 7);
+  var directions = isKing ? [-1, 1] : (piece === 'W' ? [-1] : [1]);
 
-        // Check for valid moves in all directions
-        for (var i = 0; i < directions.length; i++) {
-          var dir = directions[i];
-          var newRow = row + dir;
+  // Check for valid moves in all directions
+  for (var i = 0; i < directions.length; i++) {
+    var dir = directions[i];
+    var newRow = row + dir;
 
-          for (var j = -1; j <= 1; j += 2) {
-            var newCol = col + j;
+    for (var j = -1; j <= 1; j += 2) {
+      var newCol = col + j;
 
-            if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8 && !board[newRow][newCol]) {
-              document.getElementById('square_' + newRow + '_' + newCol).classList.add('highlight');
-            }
-          }
+      if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8 && !board[newRow][newCol]) {
+        document.getElementById('square_' + newRow + '_' + newCol).classList.add('highlight');
+      } else if (
+        newRow >= 0 &&
+        newRow < 8 &&
+        newCol >= 0 &&
+        newCol < 8 &&
+        board[newRow][newCol] &&
+        board[newRow][newCol] !== piece
+      ) {
+        // Check for capturing moves
+        var capturedRow = newRow + dir;
+        var capturedCol = newCol + j;
+
+        if (
+          capturedRow >= 0 &&
+          capturedRow < 8 &&
+          capturedCol >= 0 &&
+          capturedCol < 8 &&
+          !board[capturedRow][capturedCol]
+        ) {
+          document.getElementById('square_' + capturedRow + '_' + capturedCol).classList.add('highlight');
         }
       }
+    }
+  }
+}
+
+
 
       // Clear highlighted squares
       function clearHighlights() {
@@ -235,5 +260,4 @@
       };
     </script>
   </body>
-</center>
 </html>
